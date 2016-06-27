@@ -20,13 +20,13 @@ public:
     ~MainWindow();
 
     //void Text_in();
-
+    //void User_in();
 
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
-    void on_textEdit_textChanged();
+    void User_in();
 
 private:
     Ui::MainWindow *ui;

@@ -27,7 +27,8 @@ void MainWindow::on_pushButton_clicked()
     }
     else
     {
-        on_textEdit_textChanged();
+        //ui->textBrowser->append("ahahahh");
+        User_in();
     }
 }
 
@@ -37,8 +38,37 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 
-void MainWindow::on_textEdit_textChanged()
+void MainWindow::User_in()
 {
-    QString O = ui->textEdit->toPlainText();
+    QString O = ui->textEdit->toPlainText();    //获取用户输入
+    string str = O.toStdString();
+
+    map<string,QString>QAA;     //新建哈希表
+    QString A = QAA["你好"];
+    QString B = QAA["你叫啥"];
+    QAA["你好啊"] = A;
+    QAA["凉果冻"] = B;
+
+
+
+    int t = 1;
+    while (t) {
+
+        map<string,QString>::iterator iter;
+        iter = QAA.find(str);
+        if(iter != QAA.end())
+        {
+            ui->textBrowser->append();
+            t =0;
+        }
+        else
+        {
+            ui->textBrowser->append("\n你说啥你说啥(｡•ˇ‸ˇ•｡)我听不懂呀~");
+            ui->textBrowser->append("我现在还很笨,你可以教我说话哦╰(￣▽￣)╭\n");
+            t = 0;
+        }
+    }
+
+
 
 }
