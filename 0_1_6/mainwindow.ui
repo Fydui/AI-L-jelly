@@ -96,6 +96,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">font: 11pt &quot;Adobe 楷体 Std R&quot;;
+background-color: rgb(255, 170, 127);
 color: rgb(170, 56, 72);</string>
     </property>
     <property name="html">

@@ -89,6 +89,8 @@ void MainWindow::map()  //添加map表
             = "近看五队负重轮";
     QAA["玩守望先锋么"]
             = "我玩幼儿源贼溜";
+    QAA["昆西昆西昆"]
+            = "昆0v0";
 
 }
 void MainWindow::User_in()

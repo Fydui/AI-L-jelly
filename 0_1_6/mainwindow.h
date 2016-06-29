@@ -23,8 +23,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     map <QString,string> QAA;
-    //void Text_in();
-    //void User_in();
+
 
 
 private slots:
