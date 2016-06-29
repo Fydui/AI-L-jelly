@@ -3,8 +3,8 @@
 
 //sqlite3* conn = NULL;
 //char* sql = "AI.db";
-
-map<QString,string>QAA;
+map <QString,string> QAA;   //建立map
+map <QString,string>::iterator iter; //建立迭代器
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,8 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(tr("凉果冻"));
-    QString str = "你好啊~人类0v0~";
+    QString str = "你好啊~人类0v0~\n";
     ui->textBrowser->append(str);
+    map();
+
+
 
 }
 MainWindow::~MainWindow()
@@ -21,58 +24,57 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::map()
-{
-
-    QAA["你好"] = "你好啊";
-    QAA["你叫啥"] = "凉果冻";
-
-
-}
-
 
 void MainWindow::on_pushButton_clicked()
 {
-    QString O = ui->textEdit->toPlainText();
+    QString O = ui->textEdit->toPlainText();    //获取用户输入
     QString x = "";
     if(O == x)
     {
+        //如果用户输入为空
         QString str = "\n你想说啥你到是说啊,喵=v=";
         ui->textBrowser->append(str);
     }
     else
     {
         //ui->textBrowser->append("ahahahh");
-        User_in();
+        User_in();  //按钮响应函数
     }
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    exit(0);
+    exit(0);    //退出
 }
 
-
+void MainWindow::map()  //添加map表
+{
+    QAA["你好"] = "你好(*/ω╲*)";
+    QAA["你叫啥"] = "窝叫凉果冻0v0";
+    QAA["你多大啦"] = "不告诉你┑(￣Д ￣)┍";
+}
 void MainWindow::User_in()
 {
 
-    while(1)
+    QString userin = ui->textEdit->toPlainText(); //获取用户输入
+
+    iter = QAA.find(userin);//迭代器查找用户输入
+    if(iter != QAA.end())
     {
-        QString userin = ui->textEdit->toPlainText();    //获取用户输入
-        map<QString,string>::iterator iter;
-        iter = QAA.find(userin);
-        if(iter != QAA.end())
-        {
-            ui->textBrowser->append(userin);
-        }
-        else
-        {
-            ui->textBrowser->append("未找到");
-        }
+        string x = iter->second;    //获取用户输出的map值(second)
+        QString X =QString::fromStdString(x); //转格式
+        ui->textBrowser->append(X);
     }
+    else
+    {
+        QString str = "你说啥我听不懂哎~你可以教我说话哦(/≧▽≦)/\n";
+        ui->textBrowser->append(str);
+    }
+
+
 }
 
-
+//数据库相关 暂时用不上
 /*
 SQLITE_API int MainWindow::Sqlite3_Open()
 {

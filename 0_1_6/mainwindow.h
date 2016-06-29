@@ -22,17 +22,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    map <QString,string> QAA;
     //void Text_in();
     //void User_in();
 
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();   //确定
+    void on_pushButton_2_clicked(); //退出
 
     void User_in();
     void map();
+
+    //数据库相关 暂时用不上
     /*void Open_DB(char* sql);
     void Close_DB();
     void ExecSQL(char *sql);
