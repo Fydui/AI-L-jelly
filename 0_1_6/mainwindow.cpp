@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(360,640);
+    m_setting = new SetForm;
     setWindowTitle(tr("凉果冻"));
     QString str = "你好啊~人类0v0~\n";
     ui->textBrowser->setStyleSheet("color: green");
@@ -232,3 +234,15 @@ int MainWindow::SelectUser(int bu) //调出数据函数
     return 0;
 }
 */
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    /*
+    QWidget* setting = new QWidget();
+    setting->setWindowModality(Qt::ApplicationModal);   //禁用父窗口
+    setting->show();
+
+    setting->setFixedSize(360,640);
+    setting->setWindowTitle(tr("设置"));
+    */
+}

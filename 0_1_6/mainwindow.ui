@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
-    <height>605</height>
+    <width>360</width>
+    <height>640</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="mouseTracking">
    <bool>false</bool>
@@ -24,10 +30,16 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>490</y>
+      <y>520</y>
       <width>101</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string>发送~</string>
@@ -37,10 +49,16 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>490</y>
+      <y>520</y>
       <width>101</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string>退出</string>
@@ -50,10 +68,16 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>490</y>
+      <y>520</y>
       <width>101</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="text">
      <string>设置</string>
@@ -96,7 +120,6 @@
     </property>
     <property name="styleSheet">
      <string notr="true">font: 11pt &quot;Adobe 楷体 Std R&quot;;
-background-color: rgb(255, 170, 127);
 color: rgb(170, 56, 72);</string>
     </property>
     <property name="html">
@@ -113,7 +136,7 @@ p, li { white-space: pre-wrap; }
       <x>20</x>
       <y>410</y>
       <width>321</width>
-      <height>71</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -121,21 +144,13 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>362</width>
+     <width>360</width>
      <height>22</height>
     </rect>
    </property>

@@ -2,11 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
 #include <QtWidgets/QTextEdit>
+#include <qwidget.h>
 #include <QString>
 #include <string>
 #include <iostream>
 #include <map>
+#include "setform.h"
+
 //#include "sqlite3.h"
 //#include "sqlite3ext.h"
 using namespace std;
@@ -23,13 +27,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     map <QString,string> QAA;
-
-
-
 private slots:
 
     void on_pushButton_clicked();   //确定
     void on_pushButton_2_clicked(); //退出
+    void on_pushButton_3_clicked(); //设置
 
     void User_in();
     void map();
@@ -44,8 +46,16 @@ private slots:
     int SelectUser(int bu);*/
 
 
+
+
 private:
     Ui::MainWindow *ui;
+    SetForm* m_setting;
+
 };
+
+
+
+
 
 #endif // MAINWINDOW_H
