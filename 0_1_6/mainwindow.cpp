@@ -1,5 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "setform.h"
 
 //sqlite3* conn = NULL;
 //char* sql = "AI.db";
@@ -12,8 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(360,640);
-    m_setting = new SetForm;
     setWindowTitle(tr("凉果冻"));
+    //setWindowIcon(QIcon("./ico.png"));
     QString str = "你好啊~人类0v0~\n";
     ui->textBrowser->setStyleSheet("color: green");
     ui->textBrowser->append(str);
@@ -235,14 +236,24 @@ int MainWindow::SelectUser(int bu) //调出数据函数
 }
 */
 
+void MainWindow::showset()
+{
+    //
+}
+
 void MainWindow::on_pushButton_3_clicked()
 {
     /*
     QWidget* setting = new QWidget();
     setting->setWindowModality(Qt::ApplicationModal);   //禁用父窗口
     setting->show();
-
-    setting->setFixedSize(360,640);
     setting->setWindowTitle(tr("设置"));
     */
+    SetForm* setform = new SetForm();
+    //setform->setWindowModality(Qt::ApplicationModal);   //禁用父窗口
+    setform->show();
+    setform->setWindowTitle(tr("设置"));
+    setform->setFixedSize(360,640); //限制窗口大小
+
+
 }

@@ -9,7 +9,6 @@
 #include <string>
 #include <iostream>
 #include <map>
-#include "setform.h"
 
 //#include "sqlite3.h"
 //#include "sqlite3ext.h"
@@ -33,8 +32,9 @@ private slots:
     void on_pushButton_2_clicked(); //退出
     void on_pushButton_3_clicked(); //设置
 
-    void User_in();
-    void map();
+    void User_in(); //用户输入
+    void map(); //map表
+    void showset(); //显示设置界面
 
     //数据库相关 暂时用不上
     /*void Open_DB(char* sql);
@@ -50,7 +50,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    SetForm* m_setting;
 
 };
 
