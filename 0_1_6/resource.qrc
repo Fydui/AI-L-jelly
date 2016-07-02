@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/photo">
+        <file>Resource/ico.png</file>
+        <file>Resource/lex.jpg</file>
+        <file>Resource/lico.ico</file>
+    </qresource>
+</RCC>

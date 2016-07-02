@@ -19,7 +19,9 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     setform.h \
-    aboutform.h
+    aboutform.h \
+    sqlite3.h \
+    sqlite3ext.h
 
 FORMS    += mainwindow.ui \
     setform.ui \
@@ -31,3 +33,5 @@ DISTFILES += \
 RESOURCES += \
     resource.qrc \
     resource.qrc
+
+RC_FILE = lico.rc

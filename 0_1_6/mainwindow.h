@@ -9,9 +9,10 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include "sqlite3.h"
+#include "sqlite3ext.h"
+#pragma comment(lib,"sqlite3.lib")
 
-//#include "sqlite3.h"
-//#include "sqlite3ext.h"
 using namespace std;
 
 namespace Ui {
