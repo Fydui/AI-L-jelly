@@ -25,7 +25,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>181</width>
+     <width>241</width>
      <height>21</height>
     </rect>
    </property>
@@ -33,7 +33,7 @@
     <string notr="true">font: 12pt &quot;Adobe Arabic&quot;;</string>
    </property>
    <property name="text">
-    <string> 你可以在这里添加问答:</string>
+    <string> 你可以在这里添加问答/删除问答:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -77,8 +77,11 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Adobe Arabic&quot;;</string>
+   </property>
    <property name="text">
-    <string>确定添加</string>
+    <string>添加问答</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -173,6 +176,22 @@
      <width>291</width>
      <height>31</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>130</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;Adobe Arabic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>删除问答</string>
    </property>
   </widget>
  </widget>

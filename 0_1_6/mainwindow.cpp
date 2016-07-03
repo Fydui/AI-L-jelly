@@ -1,25 +1,25 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "setform.h"
+#include "ui_setform.h"
 
-//sqlite3* conn = NULL;
-//char* sql = "AI.db";
-map <QString,QString> QAA;   //建立map
-map <QString,string>::iterator iter; //建立迭代器
+//map <QString,QString> QAA;   //建立map
+//map <QString,string>::iterator iter; //建立迭代器
+QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE"); //添加数据库驱动链接sqlite
+QSqlQuery query;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setFixedSize(360,640);
+    this->setFixedSize(360,640);    //固定窗口大小
     setWindowTitle(tr("凉果冻"));
-    //setWindowIcon(QIcon("./ico.png"));
     QString str = "你好啊~人类0v0~\n";
-    ui->textBrowser->setStyleSheet("color: green");
+    ui->textBrowser->setStyleSheet("color: green"); //设置输出文字颜色
     ui->textBrowser->append(str);
-    map();
-
+    // map();
+    Lsql();
 
 
 }
@@ -28,6 +28,18 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::Lsql()
+{
+    db.setDatabaseName("LAI.db"); //打开数据库
+    if(!db.open())
+    {
+        ui->textBrowser->setStyleSheet("无法打开数据库,不要乱动数据库啦");
+    }
+
+    query.exec(QObject::tr("CREATE TABLE LAI(ID INTEGER PRIMARY KEY AUTOINCREMENT,ASK TEXT, ANSWER TEXT)"));
+
+
+}
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -50,10 +62,10 @@ void MainWindow::on_pushButton_2_clicked()
 {
     exit(0);    //退出
 }
-
+/*
 void MainWindow::map()  //添加map表
 {
-    QAA["你好"] = "你好(*/ω╲*)";
+    QAA["你好"] = "你好";
     QAA["凉果冻"] = "干啥~";
     QAA["你叫啥"] = "窝叫凉果冻0v0";
     QAA["你多大啦"] = "不告诉你┑(￣Д ￣)┍";
@@ -94,8 +106,12 @@ void MainWindow::map()  //添加map表
             = "我玩幼儿源贼溜";
     QAA["昆西昆西昆"]
             = "昆0v0";
+    QAA["sin半角公式"]
+            = "sinα/2 = ±√((1-cosα)/2)";
 
 }
+*/
+/*
 void MainWindow::User_in()
 {
 
@@ -122,123 +138,22 @@ void MainWindow::User_in()
 
 
 }
-
-//数据库相关 暂时用不上
-/*
-SQLITE_API int MainWindow::Sqlite3_Open()
-{
-    const char *filename = NULL;   // Database filename (UTF-8)
-    sqlite3 **conn = NULL;          // OUT: SQLite db handle
-    return SQLITE_API int();
-}
-
-void MainWindow::Open_DB(char* sql)		//打开数据库
-{
-    char* err_msg = NULL;
-    // char sql[200] = ""; //这东西干啥的我也不清楚==暂时注释掉
-
-    // 打开数据库, 创建连接
-    if (sqlite3_open(sql, &conn) != SQLITE_OK)
-    {
-        const char* sq =sqlite3_errmsg(conn);
-        QString str = QString(QLatin1String(sq));
-        ui->textBrowser->append("无法打开数据库,错误代码:");
-        ui->textBrowser->append(str);
-
-    }
-    else
-    {
-        ui->textBrowser->append("成功打开数据库~");
-    }
-}
-
-void MainWindow::Close_DB()	//关闭数据库
-{
-    char* err_msg = NULL;
-    //char sql[200] = ""; //这东西干啥的我也不清楚==暂时注释掉
-
-    // 关闭连接。
-    if (sqlite3_close(conn) != SQLITE_OK)
-    {
-        const char* sq =sqlite3_errmsg(conn);
-        QString str = QString(QLatin1String(sq));
-        ui->textBrowser->append("无法关闭数据库,错误代码:");
-        ui->textBrowser->append(str);
-        exit(-1);
-    }
-    else
-    {
-        ui->textBrowser->append("成功关闭数据库~");
-    }
-}
-
-void MainWindow::ExecSQL(char * sql)	//写完用这个添加数据库
-{
-    sqlite3_exec(conn, sql, UserResult, 0, 0);
-}
-
-char** MainWindow::SrawQuery(char * sql, int * row, int * column, char ** result)
-{
-    sqlite3_get_table(conn, sql, &result, row, column, 0);
-    return result;
-}
-
-int MainWindow::UserResult(void *NotUsed, int argc, char **argv, char **azColName)	//将Selectuserd建造出来的数据输出存储
-{
-
-    //char* Arg_s[15];
-    //char* Lv[2];
-    for (int i = 0; i < argc; i++)
-    {
-        //cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << ". ";
-        //Arg_s[i] = (argv[i] ? argv[i] : "NULL");
-        //RetBu(Arg_s[i]);	//将属性传递出去
-        //cout <<  Arg_s[i] << endl;
-    }
-    //Gcom::Save(Arg_s);
-
-    cout << endl;
-
-    return 0;
-}
-
-int MainWindow::SelectUser(int bu) //调出数据函数
-{
-
-    Open_DB(sql);
-
-    char* cErrMsg = "";
-    char s[4] = "";
-    sprintf_s(s,"%d",bu);
-    s[2] = ';';
-    char d[100] = "SELECT * FROM SG WHERE ID = ";
-    strcat_s(d, s);
-    //cout << s;
-
-    int res = sqlite3_exec(conn,d, UserResult, NULL, &cErrMsg);	//调用sqlite3_exec.直接往里输sql命令就好啦~
-
-    if (res != SQLITE_OK)
-    {
-        //const char* sq =sqlite3_errmsg(conn);
-        QString str = QString(QLatin1String(cErrMsg));
-        ui->textBrowser->append("查询数据库失败:");
-        ui->textBrowser->append(str);
-        //cout << "查询失败: " << cErrMsg << endl;
-        Close_DB();
-        return false;
-    }
-    else
-    {
-        //
-    }
-    Close_DB();
-    return 0;
-}
 */
-
-void MainWindow::showset()
+void MainWindow::User_in()
 {
-    //
+    QString userin = ui->textEdit->toPlainText();
+    QString usinq = "SELECT * FROM LAI WHERE ASK LIKE '";
+    QString usinm = "%'";
+
+    QString user_u = usinq+userin+usinm;
+    QString uout;
+    query.exec(user_u);
+    while(query.next())
+    {
+        uout = query.value(2).toString();
+        ui->textBrowser->append(uout);
+    }
+
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -249,11 +164,11 @@ void MainWindow::on_pushButton_3_clicked()
     setting->show();
     setting->setWindowTitle(tr("设置"));
     */
-    SetForm* setform = new SetForm();
     //setform->setWindowModality(Qt::ApplicationModal);   //禁用父窗口
+    SetForm* setform = new SetForm();
+
     setform->show();
     setform->setWindowTitle(tr("设置"));
     setform->setFixedSize(360,640); //限制窗口大小
-
 
 }

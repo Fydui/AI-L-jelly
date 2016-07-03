@@ -9,10 +9,14 @@
 #include <string>
 #include <iostream>
 #include <map>
-#include "sqlite3.h"
-#include "sqlite3ext.h"
-#pragma comment(lib,"sqlite3.lib")
-
+#include <QtSql>
+#include <QSqlQuery>
+#include <qsqlquery.h>
+#include <QDebug>
+#include <QTextCodec>
+#include <QObject>
+#include "setform.h"
+extern QSqlQuery query;
 using namespace std;
 
 namespace Ui {
@@ -26,7 +30,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    map <QString,string> QAA;
+                                           //数据库操作变量 对其进行数据库操作
 private slots:
 
     void on_pushButton_clicked();   //确定
@@ -34,17 +38,9 @@ private slots:
     void on_pushButton_3_clicked(); //设置
 
     void User_in(); //用户输入
-    void map(); //map表
-    void showset(); //显示设置界面
-
-    //数据库相关 暂时用不上
-    /*void Open_DB(char* sql);
-    void Close_DB();
-    void ExecSQL(char *sql);
-    char **SrawQuery(char *sql, int *row, int *column, char **result);
-    int UserResult(void *NotUsed, int argc, char **argv, char **azColName);
-    SQLITE_API int Sqlite3_Open();
-    int SelectUser(int bu);*/
+    //void map();     //map表
+    //void showset(); //显示设置界面
+    void Lsql();    //初始化数据库
 
 
 
