@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // map();
     Lsql();
 
-
 }
 MainWindow::~MainWindow()
 {
@@ -36,9 +35,7 @@ void MainWindow::Lsql()
         ui->textBrowser->setStyleSheet("无法打开数据库,不要乱动数据库啦");
     }
 
-    query.exec(QObject::tr("CREATE TABLE LAI(ID INTEGER PRIMARY KEY AUTOINCREMENT,ASK TEXT, ANSWER TEXT)"));
-
-
+    //query.exec(QObject::tr("CREATE TABLE LAI(ID INTEGER PRIMARY KEY AUTOINCREMENT,ASK TEXT, ANSWER TEXT)"));
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -166,7 +163,6 @@ void MainWindow::on_pushButton_3_clicked()
     */
     //setform->setWindowModality(Qt::ApplicationModal);   //禁用父窗口
     SetForm* setform = new SetForm();
-
     setform->show();
     setform->setWindowTitle(tr("设置"));
     setform->setFixedSize(360,640); //限制窗口大小

@@ -1,15 +1,20 @@
 ﻿#include "setform.h"
-#include "aboutform.h"
-#include "mainwindow.h"
-using namespace std;
 extern QSqlQuery query;
+
 SetForm::SetForm(QWidget *parent) :
     QWidget(parent)
+    //setf(new SetForm)
 {
     setupUi(this);
+
 }
 
-void SetForm::on_pushButton_3_clicked()
+SetForm::~SetForm()
+{
+   delete setf;
+}
+
+void SetForm::on_pushButton_4_clicked()
 {
     AboutForm* abou = new AboutForm();
     abou->show();   //显示关于窗口
@@ -18,34 +23,27 @@ void SetForm::on_pushButton_3_clicked()
     abou->setWindowModality(Qt::ApplicationModal);
 }
 
-
-void SetForm::on_pushButton_4_clicked()
+void SetForm::on_pushButton_clicked()   //确定添加
 {
-    setf->textBrowser_3->clear();
-    close();
+    //string ask = setf->textEdit->toPlainText().toStdString();
+    //string answer = setf->textEdit_2->toPlainText().toStdString();
+    Add_Sql();
 }
 
-void SetForm::on_pushButton_clicked()
+void SetForm::Add_Sql()
 {
-    QString ask = setf->textEdit->toPlainText();
-    QString answer = setf->textEdit_2->toPlainText();
-    Add_Sql(ask,answer);
 
-}
-
-void SetForm::Add_Sql(QString Ask, QString Answer)
-{
     //拼接添加语句
-    QString Aask = Ask;
-    QString Aans = Answer;
+    QString Aask = this->textEdit->toPlainText();
+    QString Aans = this->textEdit_2->toPlainText();
     QString Asqq = "INSERT INTO LAI VALUES(NULL,'";
     QString Asqz = "','";
     QString Asqm = "')";
     QString Asq_a = Asqq+Aask+Asqz+Aans+Asqm;
-    //query.exec(Asq_a);
+
     query.exec(Asq_a);
     query.exec("SELECT * FROM LAI ORDER BY ID ASC");
-    setf->textBrowser_3->append("##报告~添加成功##");
+    this->textBrowser->append("##报告~添加成功##");
 }
 
 void SetForm::on_pushButton_5_clicked()
@@ -72,7 +70,7 @@ void SetForm::Del_Sql(QString Ask)
     query.exec(Dels_d);
     query.exec("SELECT * FROM LAI ORDER BY ID ASC");
 
-    setf->textBrowser_3->append("##报告~删除成功##");
+    this->textBrowser->append("##报告~删除成功##");
 }
 
 void SetForm::on_pushButton_2_clicked()
@@ -82,18 +80,25 @@ void SetForm::on_pushButton_2_clicked()
 
 void SetForm::Show_Sql()
 {
-    query.exec("SELECT * FROM LAI ORDER BY ID ASC");
-    QString Q = "\n问: ";
-    QString A = "答: ";
+    //query.exec("SELECT * FROM LAI ORDER BY ID ASC");
+    //QString Q = "\n问: ";
+    //QString A = "答: ";
+
     while(query.next())
     {
         QString sak = query.value(1).toString();
         QString answer = query.value(2).toString();
-        setf->textBrowser_3->setText(Q);
-        setf->textBrowser_3->append(sak);
-        setf->textBrowser_3->setText(A);
-        setf->textBrowser_3->append(answer);
+        //this->textBrowser->setText(Q);
+        this->textBrowser->append(sak);
+        //this->textBrowser->setText(A);
+        this->textBrowser->append(answer);
 
     }
-    setf->textBrowser_3->append("##报告~输出完成##");
+    this->textBrowser->append("##报告~输出完成##");
 }
+
+void SetForm::on_pushButton_3_clicked()
+{
+    close();
+}
+

@@ -13,17 +13,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    aboutform.cpp \
     setform.cpp \
-    aboutform.cpp
+    mainwindow.cpp
 
 HEADERS  += mainwindow.h \
-    setform.h \
-    aboutform.h
+    aboutform.h \
+    setform.h
 
 FORMS    += mainwindow.ui \
-    setform.ui \
-    aboutform.ui
+    aboutform.ui \
+    setform.ui
 
 DISTFILES += \
     sqlite3.dll

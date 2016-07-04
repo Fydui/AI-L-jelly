@@ -16,7 +16,6 @@
 #include <QTextCodec>
 #include <QObject>
 #include "setform.h"
-extern QSqlQuery query;
 using namespace std;
 
 namespace Ui {
@@ -30,7 +29,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-                                           //数据库操作变量 对其进行数据库操作
+                        //数据库操作变量 对其进行数据库操作
 private slots:
 
     void on_pushButton_clicked();   //确定
@@ -42,10 +41,7 @@ private slots:
     //void showset(); //显示设置界面
     void Lsql();    //初始化数据库
 
-
-
-
-private:
+public:
     Ui::MainWindow *ui;
 
 };
