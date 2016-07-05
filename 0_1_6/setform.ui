@@ -77,6 +77,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Adobe Arabic&quot;;</string>
+   </property>
   </widget>
   <widget class="QTextEdit" name="textEdit_2">
    <property name="geometry">
@@ -86,6 +89,9 @@
      <width>251</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Adobe Arabic&quot;;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
@@ -166,7 +172,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">font: 11pt &quot;Adobe Arabic&quot;;
+color: rgb(170, 170, 127);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">

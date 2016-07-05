@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(360,640);    //固定窗口大小
     setWindowTitle(tr("凉果冻"));
     QString str = "你好啊~人类0v0~\n";
-    ui->textBrowser->setStyleSheet("color: green"); //设置输出文字颜色
     ui->textBrowser->append(str);
     // map();
     Lsql();
