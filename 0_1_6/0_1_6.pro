@@ -11,6 +11,12 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = 0_1_6
 TEMPLATE = app
 
+CONFIG   += console
+CONFIG   -= app_bundle
+QT       += core
+
+QT       -= gui
+
 
 SOURCES += main.cpp\
     aboutform.cpp \

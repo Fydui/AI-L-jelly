@@ -27,7 +27,7 @@ private slots:
 
     void on_pushButton_clicked();
     void Add_Sql();   //添加数据
-    void Del_Sql(QString Ask);                  //删除数据
+    void Del_Sql();                  //删除数据
     void Show_Sql();                            //查看数据
 
     void on_pushButton_5_clicked();

@@ -2,11 +2,13 @@
 #include "ui_mainwindow.h"
 #include "setform.h"
 #include "ui_setform.h"
+using namespace std;
 
 //map <QString,QString> QAA;   //建立map
 //map <QString,string>::iterator iter; //建立迭代器
-QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE"); //添加数据库驱动链接sqlite
-QSqlQuery query;
+
+extern QSqlDatabase db; //添加数据库驱动链接sqlite
+QSqlQuery* query;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,13 +31,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::Lsql()
 {
-    db.setDatabaseName("LAI.db"); //打开数据库
+    db.open();
+    db.setDatabaseName("LAI.db");   //打开数据库
     if(!db.open())
     {
         ui->textBrowser->setStyleSheet("无法打开数据库,不要乱动数据库啦");
     }
-
-    //query.exec(QObject::tr("CREATE TABLE LAI(ID INTEGER PRIMARY KEY AUTOINCREMENT,ASK TEXT, ANSWER TEXT)"));
+    query = new QSqlQuery;
+    query->exec("CREATE TABLE LAI(ID INTEGER PRIMARY KEY AUTOINCREMENT,ASK TEXT, ANSWER TEXT)");    //建立表
+    query->exec(QObject::tr("SELECT * FROM LAI ORDER BY ID ASC"));
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -139,18 +143,31 @@ void MainWindow::User_in()
 void MainWindow::User_in()
 {
     QString userin = ui->textEdit->toPlainText();
+    QString useri = "你对凉果冻说: " + userin;
+    ui->textBrowser->append(useri);
+    ui->textBrowser->append("");
     QString usinq = "SELECT * FROM LAI WHERE ASK LIKE '";
     QString usinm = "%'";
 
     QString user_u = usinq+userin+usinm;
     QString uout;
-    query.exec(user_u);
-    while(query.next())
-    {
-        uout = query.value(2).toString();
-        ui->textBrowser->append(uout);
-    }
+    query->exec(user_u);
+    QString userk = "凉果冻回答你: " ;
 
+        while(query->next())
+            uout = query->value(2).toString();
+
+        if(uout == "")
+            ui->textBrowser->append("你说啥啊~我听不懂呀~你可以教我说话滴~\n\n");
+
+        else
+            {
+                uout =userk + uout;
+                ui->textBrowser->append(uout);
+                ui->textBrowser->append("\n");
+            }
+
+    ui->textEdit->clear();
 }
 
 void MainWindow::on_pushButton_3_clicked()

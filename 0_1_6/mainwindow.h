@@ -5,11 +5,11 @@
 #include <QDebug>
 #include <QtWidgets/QTextEdit>
 #include <qwidget.h>
-#include <QString>
-#include <string>
 #include <iostream>
 #include <map>
 #include <QtSql>
+#include <QString>
+#include <string>
 #include <QSqlQuery>
 #include <qsqlquery.h>
 #include <QDebug>
@@ -17,6 +17,7 @@
 #include <QObject>
 #include "setform.h"
 using namespace std;
+
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    QSqlDatabase db= QSqlDatabase::addDatabase("QSQLITE"); //添加数据库驱动链接sqlite
     ~MainWindow();
                         //数据库操作变量 对其进行数据库操作
 private slots:
