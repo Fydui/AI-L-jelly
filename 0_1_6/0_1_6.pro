@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = 0_1_6
 TEMPLATE = app
 
-CONFIG   += console
 CONFIG   -= app_bundle
 QT       += core
 
@@ -31,12 +30,11 @@ FORMS    += mainwindow.ui \
     aboutform.ui \
     setform.ui
 
-DISTFILES += \
-    sqlite3.dll
+DISTFILES +=
 
 RESOURCES += \
     resource.qrc \
-    resource.qrc
+
 QT += sql
 
 RC_FILE = lico.rc
