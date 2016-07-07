@@ -27,8 +27,8 @@ HEADERS  += mainwindow.h \
     setform.h
 
 FORMS    += mainwindow.ui \
-    aboutform.ui \
-    setform.ui
+    setform.ui \
+    aboutform.ui
 
 DISTFILES +=
 

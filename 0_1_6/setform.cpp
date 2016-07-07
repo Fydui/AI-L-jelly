@@ -21,8 +21,8 @@ void SetForm::on_pushButton_4_clicked()
     AboutForm* abou = new AboutForm();
     abou->show();   //显示关于窗口
     abou->setWindowTitle(tr("关于"));
-    abou->setFixedSize(360,640); //限制窗口大小
-    abou->setWindowModality(Qt::ApplicationModal);
+    //abou->setFixedSize(360,640); //限制窗口大小
+    //abou->setWindowModality(Qt::ApplicationModal);
 }
 
 void SetForm::on_pushButton_clicked()   //确定添加

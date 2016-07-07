@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setFixedSize(360,640);    //固定窗口大小
+    //this->setFixedSize(360,640);    //固定窗口大小
     setWindowTitle(tr("凉果冻"));
     QString str = "你好啊~人类0v0~\n";
     ui->textBrowser->append(str);
@@ -181,6 +181,6 @@ void MainWindow::on_pushButton_3_clicked()
     SetForm* setform = new SetForm();
     setform->show();
     setform->setWindowTitle(tr("设置"));
-    setform->setFixedSize(360,640); //限制窗口大小
+    //setform->setFixedSize(360,640); //限制窗口大小
 
 }
