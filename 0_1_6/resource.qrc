@@ -4,4 +4,7 @@
         <file>Resource/lex.jpg</file>
         <file>Resource/lico.ico</file>
     </qresource>
+    <qresource prefix="/">
+        <file>LAI.db</file>
+    </qresource>
 </RCC>
