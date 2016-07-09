@@ -24,7 +24,8 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     aboutform.h \
-    setform.h
+    setform.h \
+    sqlite3.h
 
 FORMS    += mainwindow.ui \
     setform.ui \
@@ -33,7 +34,7 @@ FORMS    += mainwindow.ui \
 DISTFILES +=
 
 RESOURCES += \
-    resource.qrc \
+    resources.qrc
 
 QT += sql
 

@@ -30,7 +30,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::Lsql()
 {
-    db.open();
+    //db.open();
+
     db.setDatabaseName("LAI.db");   //打开数据库
     if(!db.open())
     {

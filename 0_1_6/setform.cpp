@@ -23,6 +23,9 @@ void SetForm::on_pushButton_4_clicked()
     abou->setWindowTitle(tr("关于"));
     //abou->setFixedSize(360,640); //限制窗口大小
     //abou->setWindowModality(Qt::ApplicationModal);
+    //QString Path = "<img src=\":/Resource/lex.jpg\"/>";
+    //Path = Path.arg(Path);
+    //QString img = QString("./Resource/lex.jpg");
 }
 
 void SetForm::on_pushButton_clicked()   //确定添加

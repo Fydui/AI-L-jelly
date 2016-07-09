@@ -15,6 +15,7 @@
 #include <QDebug>
 #include <QTextCodec>
 #include <QObject>
+#include <QtCore/QFile>
 #include "setform.h"
 using namespace std;
 
