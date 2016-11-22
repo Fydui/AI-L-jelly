@@ -120,7 +120,6 @@ void MainWindow::User_in()
     ui->textBrowser->append(userin);
     ui->textBrowser->append("");
 
-    //QString cle = "";
     iter = QAA.find(userin);//迭代器查找用户输入
     if(iter != QAA.end())
     {
@@ -142,6 +141,7 @@ void MainWindow::User_in()
 */
 void MainWindow::User_in()
 {
+
     QString userin = ui->textEdit->toPlainText();
     QString useri = "你对凉果冻说: " + userin;
     ui->textBrowser->append(useri);
